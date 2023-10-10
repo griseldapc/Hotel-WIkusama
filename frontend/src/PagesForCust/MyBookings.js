@@ -9,10 +9,13 @@ import $ from "jquery";
 import moment from 'moment';
 import '@progress/kendo-theme-material/dist/all.css';
 import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
+import numeral from 'numeral'; //rupiah
 
 //ini untuk print
 const PrintElement = (props) => {
     const { item } = props;
+    let hari = moment(item.check_out_date, 'YYYY-MM-DD').diff(moment(item.check_in_date, 'YYYY-MM-DD'), 'days')
+    let jumlah = item.total_room
 
     return (
         <div className="mt-4">
@@ -21,9 +24,9 @@ const PrintElement = (props) => {
 
                 <div className="invoice-details">
                     <div>
-                        <p><span className="font-semibold">Hotel Name:</span> Slippy</p>
+                        <p><span className="font-semibold">Hotel Name:</span> Opulent</p>
                         <p><span className="font-semibold mt-2">Address:</span> Malang</p>
-                        <p><span className="font-semibold mt-2">Phone:</span> 0331-1234</p>
+                        <p><span className="font-semibold mt-2">Phone:</span> 0341-4321</p>
                     </div>
                     <div>
                         <p><span className="font-semibold">Date: </span> {moment(Date.now()).format('DD-MM-YYYY')}</p>
@@ -32,6 +35,11 @@ const PrintElement = (props) => {
                             BOOK - {item.booking_number}
                         </span>
                     </div>
+                </div>
+
+                <div className="text-sm mb-4 flex gap-48">
+                    <p><span className="font-semibold mt-2">Check In:</span> {moment(item.tgl_check_in).format('DD-MM-YYYY')}</p>
+                    <p><span className="font-semibold mt-2 justify-end text-end">Check Out:</span> {moment(item.tgl_check_out).format('DD-MM-YYYY')}</p>
                 </div>
 
                 <table className="invoice-items">
@@ -50,10 +58,15 @@ const PrintElement = (props) => {
                             <td className="p-4 text-center">{item.total_room}</td>
                             <td className="p-4 text-left">{moment(item.check_in_date).format('DD-MM-YYYY')}</td>
                             <td className="p-4 text-left">{moment(item.check_out_date).format('DD-MM-YYYY')}</td>
-                            <td className="p-4 text-left">{item.room_type.price}</td>
+                            <td className="p-4 text-left">{numeral(item.room_type.price).format('0,0')}</td>
                         </tr>
                     </tbody>
                 </table>
+                <div className="flex gap-[350px] mt-8">
+                    <h2 className="">Total :</h2>
+                    <p>{numeral(item.room_type.price * hari * jumlah).format('0,0')}</p>
+
+                </div>
             </div>
         </div>
     )
@@ -214,7 +227,7 @@ export default class MyBookings extends React.Component {
                     <p className="text-xl font-semibold text-blue-600">History </p>
                     <p className="text-5xl font-bold mt-2">Transaction List</p>
                     <div className="flex mt-6">
-                        <div className="flex rounded w-1/2">
+                        {/* <div className="flex rounded w-1/2">
                             <input
                                 type="text"
                                 className="w-5/6 block w-full px-4 py-2 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
@@ -226,7 +239,7 @@ export default class MyBookings extends React.Component {
                             <button className="w-1/6 ml-2 px-4 text-white bg-blue-600 rounded hover:bg-blue-700" onClick={this._handleFilter}>
                                 <FontAwesomeIcon icon={faSearch} size="" />
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -405,7 +418,7 @@ export default class MyBookings extends React.Component {
                 >
                     <PDFExport ref={this.state.pdfExportComponent}>
                         <div ref={this.state.container}>
-                            {this.state.isPrint ? <PrintElement item={this.state.dataPrint}/> : null}
+                            {this.state.isPrint ? <PrintElement item={this.state.dataPrint} /> : null}
                         </div>
                     </PDFExport>
                 </div>

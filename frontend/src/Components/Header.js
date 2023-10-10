@@ -30,7 +30,7 @@ export default class Header extends React.Component {
 
     render() {
         return (
-            <header class="header bg-white shadow py-4 px-4">
+            <header class="header dark:bg-[#DFF6FF] py-4 px-4">
                 <div class="header-content flex items-center flex-row">
                     <form action="#">
                         <div class="hidden md:flex relative">

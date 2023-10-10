@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import axios from 'axios'
+import { Navigate } from "react-router-dom";
 
 export default class Login extends React.Component {
     constructor() {
@@ -11,7 +12,17 @@ export default class Login extends React.Component {
             isModalOpen: false,
             logged: false,
         }
+        this.setState({ logged: true });
     }
+
+    
+
+    componentDidMount() {
+        const token = localStorage.getItem("token");
+        if (token) {
+            this.setState({ logged: true });
+        }
+    }
 
     handleChange = (e) => {
         this.setState({
@@ -57,36 +68,45 @@ export default class Login extends React.Component {
     }
 
     render() {
-        return (
+        if (this.state.logged) {
+            // Redirect to the dashboard if the user is logged in.
+            return <Navigate to="/dashboard" />;
+        }
+
+        return (
             <div className="dashboard1">
-                <div class="flex">
-                    <div class="w-1/2 bg-gray-200 text-left">
-                        <form class="bg-gray-100 shadow-md rounded px-8 pt-6 p-8 m-24 mt-30" onSubmit={(e) => this.handleLogin(e)}>
-                            <p class="text-gray-700 text-2xl font-bold mb-8 text-center">Login Dashboard Slippy</p>
-                            <div class="mb-4">
-                                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
-                                    Email
-                                </label>
-                                <input class="shadow appearance-none border border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="email_user" name="email_user" placeholder="Email" value={this.state.email_user} onChange={this.handleChange} required />
-                            </div>
-                            <div class="mb-6">
-                                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-                                    Password
-                                </label>
-                                <input class="shadow appearance-none border border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password_user" type="password" placeholder="Password" value={this.state.password_user} onChange={this.handleChange} required />
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <button class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 w-full rounded focus:outline-none focus:shadow-outline" type="submit">
-                                    Login
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="w-1/2 bg-gray-500 text-center">
-                        <img src="/assets/loginnn.jpeg" className="w-screen h-screen" alt="" />
-                    </div>
+                <div className="flex flex-col h-screen dark:text-gray-100 " style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1527853787696-f7be74f2e39a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")', backgroundSize: 'cover', backgroundPosition: 'center'
+            }}>
+
+                    <form class="bg-[#765827] shadow-md rounded-3xl px-8 pt-6 p-8 mx-auto w-1/3 mt-24" onSubmit={(e) => this.handleLogin(e)}>
+                        <div className="mb-8 text-center">
+                            <h1 className="my-3 text-4xl font-bold">Sign in</h1>
+                            <p className="text-sm ">Sign in to access your account</p>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block  text-sm font-bold mb-2" for="email">
+                                Email
+                            </label>
+                            <input class="shadow appearance-none border border rounded w-full text-gray-700 py-2 px-3  mb-3 leading-tight focus:outline-none focus:shadow-outline" id="email_user" name="email_user" placeholder="Email" value={this.state.email_user} onChange={this.handleChange} required />
+                        </div>
+                        <div class="mb-6">
+                            <label class="block  text-sm font-bold mb-2" for="password">
+                                Password
+                            </label>
+                            <input class="shadow appearance-none border border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password_user" type="password" placeholder="Password" value={this.state.password_user} onChange={this.handleChange} required />
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <button class="bg-[#3C2A21] hover:bg-[#65451F] text-white font-bold py-2 mb-4 mt-2 w-full rounded focus:outline-none focus:shadow-outline" type="submit">
+                                Login
+                            </button>
+                        </div>
+                    </form>
                 </div>
+                {/* <div class="w-1/2 bg-gray-500 text-center">
+                        <img src="/assets/loginnn.jpeg" className="w-screen h-screen" alt="" />
+                    </div> */}
             </div>
+
         );
     }
 }

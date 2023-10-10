@@ -95,7 +95,7 @@ export default class Rooms extends React.Component {
             <div>
                 <Navbar />
                 <div className="m-6 pl-6 ">
-                    <p className="text-xl font-semibold text-blue-600">Beautiful Room </p>
+                    <p className="text-xl font-semibold text-[#765827]">Beautiful Room </p>
                     <p className="text-5xl font-bold mt-2">Best Room For You</p>
                     <div className="flex mt-6">
                         <div className="flex rounded w-1/2">
@@ -106,8 +106,9 @@ export default class Rooms extends React.Component {
                                 name="keyword"
                                 value={this.state.keyword}
                                 onChange={this.handleChange}
+                                onKeyUp={this._handleFilter}
                             />
-                            <button className="w-1/6 ml-2 px-4 text-white bg-blue-600 rounded hover:bg-blue-700" onClick={this._handleFilter}>
+                            <button className="w-1/6 ml-2 px-4 text-white bg-[#3C2A21] rounded hover:bg-[#765827]" onClick={this._handleFilter}>
                                 <FontAwesomeIcon icon={faSearch} size="" />
                             </button>
                         </div>
@@ -124,7 +125,7 @@ export default class Rooms extends React.Component {
                                         </div>
                                         <div class="px-6 py-4">
                                             <div class="font-bold text-2xl mb-2">{item.name_room_type}</div>
-                                            <div class="font-bold text-xl mb-2 text-blue-600">{item.price}/night</div>
+                                            <div class="font-bold text-xl mb-2 text-[#765827]">{item.price}/night</div>
                                             <p class="text-gray-700 text-base">
                                                 <LinesEllipsis
                                                     text={item.description}
@@ -134,7 +135,7 @@ export default class Rooms extends React.Component {
                                             </p>
                                         </div>
                                         <div class="px-6 pt-4 pb-2">
-                                            <button class="mb-2 ml-40 bg-blue-600 hover:bg-blue-700 text-white font-bold p-2 w-1/3 rounded focus:outline-none focus:shadow-outline" type="button" onClick={() => this.handleDetail(item)}>
+                                            <button class="mb-2  bg-[#3C2A21] hover:bg-[#765827] text-white font-bold p-2 w-1/3 rounded focus:outline-none focus:shadow-outline" type="button" onClick={() => this.handleDetail(item)}>
                                                 Detail
                                             </button>
 

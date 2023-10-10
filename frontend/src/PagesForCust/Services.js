@@ -11,42 +11,71 @@ export default class Services extends React.Component {
             <div>
                 <Navbar />
 
-                <div className="text-center pb-8">
-                    <p className='p-8 text-5xl font-bold'>The <span className="text-blue-600">Services</span> You Get From Slippy</p>
-                    <p className="mr-64 ml-64  text-gray-600 text-xl">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration variations of passages of Lorem Ipsum available</p>
+
+                <section className=" dark:bg-[#F8F6F4] dark:text-gray-100">
+                <div className="text-center pb-8 pt-8">
+                    <p className='p-8 text-5xl font-bold text-black'>The <span className="text-[#765827]">Services</span> You Get From Opulent</p>
+                    <p className="mr-64 ml-64  text-gray-600 text-xl">Hotel ini menyediakan berbagai layanan termasuk layanan kamar 24 jam, restoran eksklusif, layanan concierge, pusat kebugaran, dan kolam renang yang indah untuk para tamu menikmati selama menginap.</p>
                 </div>
+	<div className="container flex flex-col items-center justify-center mx-auto lg:flex-row lg:flex-wrap lg:justify-evenly lg:px-10 pb-8">
+		
+		<div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
+			<div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-[#3C2A21]">
+				<p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
+					Tempat kemewahan yang nyaman dan elegan dengan dekorasi berkelas, perabotan mewah, dan pemandangan spektakuler. Dilengkapi dengan fasilitas modern seperti TV, Wi-Fi cepat, dan kenyamanan tidur luar biasa, tempat sempurna untuk bersantai dan merayakan momen istimewa.
+					
+				</p>
+			</div>
+			<div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-[#765827]dark:text-gray-900">
+				<img src="/assets/sleeping.png" alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-3xl p-3 dark:bg-gray-500 dark:bg-[#765827]" />
+				<p className="text-xl font-semibold leadi text-black">High Quality</p>
+				<p className="text-sm uppercase text-black">Room</p>
+			</div>
+		</div>
+		
+		<div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
+			<div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-[#3C2A21]">
+				<p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
+					Restoran kami adalah surga kuliner yang menggoda lidah dengan hidangan lezat dari seluruh dunia. Dengan suasana elegan dan pemandangan yang memikat, kami menawarkan rasa yang tak tertandingi. Staf berpengalaman kami siap memenuhi semua keinginan Anda.
+					
+				</p>
+			</div>
+			<div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-[#765827]dark:text-gray-900">
+				<img src="/assets/cutlery.png" alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-3xl p-3 dark:bg-gray-500 dark:bg-[#765827]" />
+				<p className="text-xl font-semibold leadi text-black">High Quality</p>
+				<p className="text-sm uppercase text-black">Food</p>
+			</div>
+		</div>
 
-                <div class="flex flex-row ml-12 mr-12 mt-4">
-                    <div class="basis-1/3">
-                        <div class="max-w-sm p-6 bg-gray-100 rounded-lg shadow h-60 border border-gray-200 drop-shadow-md">
-                            <div className="mb-2"><FontAwesomeIcon icon={faBowlFood} size="2x" color="blue" /></div>
-                            <a href="#">
-                                <h5 class="mb-2 text-2xl font-semibold text-black-600">High Quality Foods</h5>
-                            </a>
-                            <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>
+        <div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
+			<div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-[#3C2A21]">
+				<p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
+                    Tempat yang sempurna untuk bersantai di tengah taman tropis dengan kursi berjemur dan cabana yang nyaman. Dengarkan suasana kota yang tenang sambil menikmati minuman segar dari bar kolam renang kami.
+				</p>
+			</div>
+			<div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-[#765827]dark:text-gray-900">
+				<img src="/assets/swimming.png" alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-3xl p-3 dark:bg-gray-500 dark:bg-[#765827]" />
+				<p className="text-xl font-semibold leadi text-black">High Quality</p>
+				<p className="text-sm uppercase text-black">Swimming Pool</p>
+			</div>
+		</div>
 
-                        </div>
-                    </div>
-                    <div class="basis-1/3">
-                        <div class="max-w-sm p-6 bg-gray-100 rounded-lg shadow h-60 border border-gray-200 drop-shadow-md">
-                            <div className="mb-2"><FontAwesomeIcon icon={faBed} size="2x" color="blue" /></div>
-                            <a href="#">
-                                <h5 class="mb-2 text-2xl font-semibold text-black-600">Simple & Elegant Room</h5>
-                            </a>
-                            <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>
-
-                        </div>
-                    </div>
-                    <div class="basis-1/3">
-                        <div class="max-w-sm p-6 bg-gray-100 rounded-lg shadow h-60 border border-gray-200 drop-shadow-md">
-                            <div className="mb-2"><FontAwesomeIcon icon={faSwimmingPool} size="2x" color="blue" /></div>
-                            <a href="#">
-                                <h5 class="mb-2 text-2xl font-semibold text-black-600">Swimming Pool</h5>
-                            </a>
-                            <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>
-                        </div>
-                    </div>
-                </div>
+        <div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
+			<div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-[#3C2A21]">
+				<p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
+					
+                    Tempat yang sempurna untuk berlatih dengan peralatan terkini dan pemandangan indah kota. Terang, tenang, dan dilengkapi dengan mesin kardio, kekuatan, serta ruang istirahat. Transformasikan diri Anda di sini!
+					
+				</p>
+			</div>
+			<div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-[#765827]dark:text-gray-900">
+				<img src="/assets/gym.png" alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-3xl p-3 dark:bg-gray-500 dark:bg-[#765827]" />
+				<p className="text-xl font-semibold leadi text-black">High Quality</p>
+				<p className="text-sm uppercase text-black">Sport Area</p>
+			</div>
+		</div>
+	</div>
+</section>
 
             </div>
         )

@@ -9,13 +9,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_user: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "user",
-          key: "id_user"
-        }
-      },
+      // id_user: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: "user",
+      //     key: "id_user"
+      //   }
+      // },
       id_customer: {
         type: Sequelize.INTEGER,
         references: {
