@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from "../Components/Sidebar";
+import Header from "../Components/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPencilSquare,
@@ -53,7 +54,7 @@ export default class HistoryTransaksi extends React.Component {
 
   headerConfig = () => {
     let header = {
-      headers: { Authorization: `Bearer ${this.state.token}` },
+      headers: { Authorization:` Bearer ${this.state.token}` },
     };
     return header;
   };
@@ -223,8 +224,9 @@ export default class HistoryTransaksi extends React.Component {
       <div class="flex flex-row min-h-screen bg-gray-100 text-gray-800">
         <Sidebar />
         <main class="main flex flex-col flex-grow ml-60 transition-all duration-150 ease-in">
-         
-          <div class="main-content flex flex-col flex-grow p-4">
+          <div class="main-content flex flex-col flex-grow p-6">
+          <h1 class="font-bold text-xl text-black-700">List Booking</h1>
+                        <p class="text-gray-700 pb-8">For Booking in Opulent Hotel</p>
             <div class="mb-4 flex flex-row">
               <div className="justify-items-center w-1/2">
                 <div className="rounded ml-5">
@@ -235,7 +237,7 @@ export default class HistoryTransaksi extends React.Component {
                     Search
                   </label>
                   <div class="relative">
-                    <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                    <div class="flex absolute inset-y-0  items-center pl-3 pointer-events-none">
                       <svg
                         class="w-5 h-5 text-gray-500"
                         fill="none"

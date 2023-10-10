@@ -284,15 +284,15 @@ const findBookingDataFilter = async (req, res) => {
       include: ["user", "room_type", "customer"],
       where: {
         [Op.or]: {
-          booking_number: { [Op.like]: `%${keyword}%` },
-          name_customer: { [Op.like]: `%${keyword}%` },
+          booking_number: { [Op.like]:` %${keyword}%` },
+          name_customer: { [Op.like]:` %${keyword}%` },
           email: { [Op.like]: `%${keyword}%` },
           guest_name: { [Op.like]: `%${keyword}%` },
           booking_status: { [Op.like]: `%${keyword}%` },
           check_in_date: {
             [Op.and]: [
               literal(
-                `DATE_FORMAT(check_in_date, '%d-%m-%Y') LIKE '%${keyword}%'`
+               ` DATE_FORMAT(check_in_date, '%d-%m-%Y') LIKE '%${keyword}%'`
               ),
             ],
           },
@@ -322,7 +322,7 @@ const findBookingByNameCustomer = async (req, res) => {
       include: ["room_type"],
       where: {
         [Op.or]: {
-          name_customer: { [Op.like]: `%${keyword}%` },
+          name_customer: { [Op.like]:` %${keyword}%` },
         },
       },
     });

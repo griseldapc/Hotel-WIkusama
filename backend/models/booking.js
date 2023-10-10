@@ -7,14 +7,16 @@ module.exports = (sequelize, DataTypes) => {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
+     * The models/index file will call this method automatically.
      */
     static associate(models) {
       // define association here
 
-      // //menerima sambungan dari user
-      // this.belongsTo(models.user, {
-      // })
+      //menerima sambungan dari user
+      this.belongsTo(models.user, {
+        foreignKey: 'id_user',
+        as: 'user'
+      })
       //menerima sambungan dari customer
       this.belongsTo(models.customer, {
         foreignKey: 'id_customer',
@@ -39,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    // id_user: DataTypes.INTEGER,
+    id_user: DataTypes.INTEGER,
     id_customer: DataTypes.INTEGER,
     id_room_type: DataTypes.INTEGER,
     booking_number: DataTypes.INTEGER,
